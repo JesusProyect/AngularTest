@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="my-title text-center mt-4">Rick And Morty Wiki</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 my-filter-options">
+            <div>
+                <div class="input-group ">
+                    <input (keyup.enter)="search(name)"  #name  type="text" class="form-control" placeholder="Buscar personaje por nombre" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button (click)="search(name)" class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+                </div>
+            </div>
+          
+            <select (change)="filter($event)" class="form-select" aria-label="Filtrar">
+                <option  disabled selected>Filtrar estado</option>
+                <option value="alive">Vivo</option>
+                <option value="dead">Muerto</option>
+                <option value="unknown">Desconocido</option>
+            </select>
+
+            <select (change)="sort($event)" class="form-select" aria-label="Ordenar" #sortInput>
+                <option  disabled selected>Ordenar</option>
+                <option value="default">Sin orden</option>
+                <option value="asc">Ascendente</option>
+                <option value="desc">Descendente</option>
+            </select>
+        </div>
+    </div>
+
+    <div *ngIf="characters.length === 0">
+        <h4>Lo sentimos, su búsqueda no ha arrojado ningún resultado</h4>
+    </div>
+
+    <div *ngIf="characters.length > 0">
+        <div class="row">
+            <div class="col-12 no-movil">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Género</th>
+                        <th scope="col">Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let character of characters" [routerLink]="'/character/' + character.id">
+                        <td>
+                            <img class="my-img" [src]="character.image" [alt]="character.name">
+                        </td>
+                        <td>
+                            {{character.name}}
+                        </td>
+                        <td>
+                            {{character.gender}}
+                        </td>
+                        <td>
+                            {{character.status}}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    
+    
+        <div class="col-12 movil">
+            <div class="cards mt-4">
+    
+                <div *ngFor="let character of characters" class="card" style="width: 18rem;" 
+                    [routerLink]="'/character/'+ character.id">
+                    <img [src]="character.image" class="card-img-top" alt="...">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">{{character.name}}</h5>
+                      <div class="card-text">
+                        <span> Género: {{character.gender}}</span><br>
+                        <span> Estado: {{character.status}}</span><br>
+                      </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    
+</div>

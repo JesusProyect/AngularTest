@@ -1,0 +1,48 @@
+
+<div class="container">
+    <div *ngIf="character">
+
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center title mt-4">{{character.name}}</h1>
+            </div>
+        </div>
+    
+        <div class="row mt-4">
+                <div class="col-sm-12 col-md-6">
+                    <div class="my-img">
+                        <img [src]="character.image" alt="character.name">
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6">
+                    <div class="description">
+                        <div>
+                            <strong>Estado:</strong>   {{character.status}}
+                        </div>
+                        <div>
+                            <strong>Especie:</strong>  {{character.species}}
+                        </div>
+                        <div>
+                             <strong>Género:</strong>  {{character.gender}}
+                        </div>
+                        <div>
+                            <strong>Creado:</strong>   {{character.created | date:'dd / MM / YYYY - HH:mm'}}
+                        </div>
+                
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <div *ngIf="error">
+        <div class="text-center mt-4">
+            <h2 class="text-center">El id de personaje proporcionado no existe</h2>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <button routerLink = "/characters" class="btn btn-primary mt-3">Volver</button>
+    </div>
+    
+</div>

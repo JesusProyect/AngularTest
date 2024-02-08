@@ -1,0 +1,68 @@
+.my-title{
+    font-family: 'Roboto' ;
+}
+
+.my-img{
+    width: 80px;
+}
+
+.movil{
+    display: none;
+}
+
+.my-filter-options{
+    display: flex;
+    justify-content: center;
+}
+
+.my-filter-options > select, .my-filter-options > div{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 30%;
+}
+
+.cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card{
+    margin-bottom: 20px;
+    position: relative;
+    transition: transform 0.3s ease;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+
+}
+
+.card:hover{
+    transform: scale(1.04);
+}
+
+
+
+
+@media(max-width:750px){
+    .no-movil{
+        display: none;
+    }
+
+    .movil{
+        display: block;
+    }
+
+    .my-filter-options{
+        flex-wrap: wrap;
+    }
+
+    .my-filter-options > div{
+        width: 90%;
+        margin-bottom: 15px;
+    }
+
+    .my-filter-options > select{
+        width: 40%;
+    }
+
+}

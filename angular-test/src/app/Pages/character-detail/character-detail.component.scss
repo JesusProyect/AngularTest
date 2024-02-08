@@ -1,0 +1,23 @@
+.title{
+    font-family: "Roboto";
+}
+
+.my-img{
+    display: flex;
+    justify-content: end;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+}
+
+@media(max-width:750px){
+    .my-img{
+        justify-content: center;
+    }
+    .description{
+        align-items: center;
+        justify-content: center;
+    }
+}
